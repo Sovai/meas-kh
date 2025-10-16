@@ -1,0 +1,93 @@
+@import 'tailwindcss';
+
+/* MiSans Khmer Font Family */
+@font-face {
+  font-family: 'MiSans Khmer';
+  src: url('./fonts/MiSansKhmer-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MiSans Khmer';
+  src: url('./fonts/MiSansKhmer-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MiSans Khmer';
+  src: url('./fonts/MiSansKhmer-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MiSans Khmer';
+  src: url('./fonts/MiSansKhmer-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MiSans Khmer';
+  src: url('./fonts/MiSansKhmer-Normal.woff2') format('woff2');
+  font-weight: 450;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MiSans Khmer';
+  src: url('./fonts/MiSansKhmer-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MiSans Khmer';
+  src: url('./fonts/MiSansKhmer-Demibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MiSans Khmer';
+  src: url('./fonts/MiSansKhmer-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MiSans Khmer';
+  src: url('./fonts/MiSansKhmer-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MiSans Khmer';
+  src: url('./fonts/MiSansKhmer-Heavy.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Apply MiSans Khmer as default font to all elements */
+* {
+  font-family:
+    'MiSans Khmer', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+body {
+  font-family: 'MiSans Khmer', ui-sans-serif, system-ui, sans-serif;
+}
