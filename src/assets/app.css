@@ -91,3 +91,21 @@
 body {
   font-family: 'MiSans Khmer', ui-sans-serif, system-ui, sans-serif;
 }
+
+@media (max-width: 640px) {
+  * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .grid {
+    display: grid;
+    width: 100%;
+  }
+}

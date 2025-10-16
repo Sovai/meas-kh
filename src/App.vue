@@ -1,42 +1,55 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 p-4 py-8">
+  <div
+    class="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 p-2 sm:p-4 py-4 sm:py-8"
+  >
     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-8 relative">
-        <button
-          @click="toggleLanguage"
-          class="absolute right-0 top-0 px-4 py-2 bg-white/80 backdrop-blur-sm border border-amber-200 rounded-xl hover:bg-white hover:shadow-md transition-all duration-200 flex items-center gap-2 text-amber-800 font-medium"
-          title="Switch Language"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
-            ></path>
-          </svg>
-          <span>{{ currentLanguage === 'km' ? 'English' : 'ខ្មែរ' }}</span>
-        </button>
-        <h1 class="text-4xl font-bold text-amber-900 mb-2">{{ t.app.title }}</h1>
-        <p class="text-amber-700">{{ t.app.subtitle }}</p>
+      <div class="text-center mb-4 sm:mb-8">
+        <div class="flex justify-center items-center mb-4 sm:mb-6 relative">
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-amber-900">
+            {{ t.app.title }}
+          </h1>
+          <button
+            @click="toggleLanguage"
+            class="absolute right-0 px-2 sm:px-4 py-1.5 sm:py-2 bg-white/80 backdrop-blur-sm border border-amber-200 rounded-lg sm:rounded-xl hover:bg-white hover:shadow-md transition-all duration-200 flex items-center gap-1 sm:gap-2 text-amber-800 font-medium text-sm sm:text-base"
+            title="Switch Language"
+          >
+            <svg
+              class="w-4 h-4 sm:w-5 sm:h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+              ></path>
+            </svg>
+            <span class="hidden sm:inline">{{
+              currentLanguage === 'km' ? 'English' : 'ខ្មែរ'
+            }}</span>
+          </button>
+        </div>
+        <p class="text-sm sm:text-base text-amber-700">{{ t.app.subtitle }}</p>
       </div>
 
       <div
-        class="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 border border-amber-200 mb-6"
+        class="bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-6 lg:p-8 border border-amber-200 mb-4 sm:mb-6"
       >
-        <div v-if="error" class="text-center py-12">
-          <p class="text-red-600 mb-4">{{ error }}</p>
+        <div v-if="error" class="text-center py-8 sm:py-12">
+          <p class="text-red-600 mb-4 text-sm sm:text-base">{{ error }}</p>
           <button
             @click="fetchGoldPrice"
-            class="px-6 py-3 bg-amber-600 text-white rounded-xl hover:bg-amber-700 transition-colors"
+            class="px-4 sm:px-6 py-2 sm:py-3 bg-amber-600 text-white rounded-xl hover:bg-amber-700 transition-colors text-sm sm:text-base"
           >
             {{ t.app.retry }}
           </button>
         </div>
 
-        <div v-else-if="loading && !goldPrice" class="text-center py-12">
+        <div v-else-if="loading && !goldPrice" class="text-center py-8 sm:py-12">
           <svg
-            class="w-12 h-12 animate-spin text-amber-600 mx-auto mb-4"
+            class="w-10 h-10 sm:w-12 sm:h-12 animate-spin text-amber-600 mx-auto mb-4"
             fill="none"
             viewBox="0 0 24 24"
           >
@@ -54,27 +67,29 @@
               d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
             ></path>
           </svg>
-          <p class="text-amber-700">{{ t.app.loading }}</p>
+          <p class="text-amber-700 text-sm sm:text-base">{{ t.app.loading }}</p>
         </div>
 
         <div v-else>
-          <div class="flex items-center justify-between mb-6">
-            <div class="flex items-center gap-3">
-              <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-              <span class="text-sm text-amber-600">{{ t.app.liveUpdates }}</span>
+          <div
+            class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 sm:mb-6 gap-3"
+          >
+            <div class="flex items-center gap-2 sm:gap-3">
+              <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-green-500 rounded-full animate-pulse"></div>
+              <span class="text-xs sm:text-sm text-amber-600">{{ t.app.liveUpdates }}</span>
             </div>
-            <div class="flex items-center gap-3">
-              <div class="text-xs text-amber-600">
+            <div class="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
+              <div class="text-[10px] sm:text-xs text-amber-600 flex-1 sm:flex-none">
                 {{ t.app.lastUpdated }}: {{ formatTime(lastUpdate) }}
               </div>
               <button
                 @click="fetchGoldPrice"
                 :disabled="loading"
-                class="px-3 py-1.5 bg-amber-600 text-white text-xs font-medium rounded-lg hover:bg-amber-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1.5"
+                class="px-2 sm:px-3 py-1 sm:py-1.5 bg-amber-600 text-white text-[10px] sm:text-xs font-medium rounded-lg hover:bg-amber-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 sm:gap-1.5 whitespace-nowrap"
                 :title="t.app.refresh"
               >
                 <svg
-                  class="w-3.5 h-3.5"
+                  class="w-3 h-3 sm:w-3.5 sm:h-3.5"
                   :class="{ 'animate-spin': loading }"
                   fill="none"
                   stroke="currentColor"
@@ -94,18 +109,18 @@
 
           <div
             ref="chiCardRef"
-            class="bg-gradient-to-br from-amber-200 to-orange-200 rounded-3xl p-8 lg:p-10 border-4 border-amber-500 shadow-2xl mb-4 relative"
+            class="bg-gradient-to-br from-amber-200 to-orange-200 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-10 border-2 sm:border-4 border-amber-500 shadow-2xl mb-4 relative"
           >
             <button
               @click="downloadChiCardAsImage"
               :disabled="isDownloadingImage"
               data-html2canvas-ignore
-              class="absolute top-4 right-4 p-2 bg-white/90 hover:bg-white rounded-lg shadow-md transition-all duration-200 group disabled:opacity-50 disabled:cursor-not-allowed"
+              class="absolute top-2 right-2 sm:top-4 sm:right-4 p-1.5 sm:p-2 bg-white/90 hover:bg-white rounded-lg shadow-md transition-all duration-200 group disabled:opacity-50 disabled:cursor-not-allowed"
               :title="isDownloadingImage ? 'Generating image...' : t.app.downloadImage"
             >
               <svg
                 v-if="isDownloadingImage"
-                class="w-5 h-5 text-amber-700 animate-spin"
+                class="w-4 h-4 sm:w-5 sm:h-5 text-amber-700 animate-spin"
                 fill="none"
                 viewBox="0 0 24 24"
               >
@@ -125,7 +140,7 @@
               </svg>
               <svg
                 v-else
-                class="w-5 h-5 text-amber-700 group-hover:text-amber-900"
+                class="w-4 h-4 sm:w-5 sm:h-5 text-amber-700 group-hover:text-amber-900"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -139,9 +154,11 @@
               </svg>
             </button>
 
-            <div class="text-center mb-6">
-              <div class="text-amber-900 text-xl font-bold mb-2">{{ t.units.perChi }}</div>
-              <div class="text-[11px] text-amber-700">
+            <div class="text-center mb-4 sm:mb-6 pr-8 sm:pr-0">
+              <div class="text-amber-900 text-base sm:text-xl font-bold mb-1 sm:mb-2">
+                {{ t.units.perChi }}
+              </div>
+              <div class="text-[10px] sm:text-[11px] text-amber-700">
                 3.75 {{ t.units.gram }} = 1 {{ t.units.chi }}
               </div>
               <div class="date-stamp text-[10px] text-amber-600 mt-2 hidden">
@@ -157,24 +174,28 @@
               </div>
             </div>
 
-            <div class="mb-6 pb-6 border-b-2 border-amber-400/40">
-              <div class="text-center text-sm font-bold text-amber-900 mb-4">
+            <div class="mb-4 sm:mb-6 pb-4 sm:pb-6 border-b-2 border-amber-400/40">
+              <div class="text-center text-xs sm:text-sm font-bold text-amber-900 mb-3 sm:mb-4">
                 {{ t.chiPricing.goldBar }}
               </div>
-              <div class="grid grid-cols-2 gap-6">
+              <div class="grid grid-cols-2 gap-3 sm:gap-6">
                 <div class="text-center">
-                  <div class="text-xs text-amber-800 uppercase mb-2 font-semibold">
+                  <div
+                    class="text-[10px] sm:text-xs text-amber-800 uppercase mb-1 sm:mb-2 font-semibold"
+                  >
                     {{ t.chiPricing.buy }}
                   </div>
-                  <div class="text-4xl lg:text-5xl font-black text-amber-950">
+                  <div class="text-xl sm:text-3xl lg:text-5xl font-black text-amber-950 break-all">
                     {{ formatPrice(chiBarBuy) }}
                   </div>
                 </div>
                 <div class="text-center">
-                  <div class="text-xs text-blue-700 uppercase mb-2 font-semibold">
+                  <div
+                    class="text-[10px] sm:text-xs text-blue-700 uppercase mb-1 sm:mb-2 font-semibold"
+                  >
                     {{ t.chiPricing.sell }}
                   </div>
-                  <div class="text-4xl lg:text-5xl font-black text-blue-900">
+                  <div class="text-xl sm:text-3xl lg:text-5xl font-black text-blue-900 break-all">
                     {{ formatPrice(chiBarSell) }}
                   </div>
                 </div>
@@ -182,23 +203,27 @@
             </div>
 
             <div>
-              <div class="text-center text-sm font-bold text-amber-900 mb-4">
+              <div class="text-center text-xs sm:text-sm font-bold text-amber-900 mb-3 sm:mb-4">
                 {{ t.chiPricing.goldJewel }}
               </div>
-              <div class="grid grid-cols-2 gap-6">
+              <div class="grid grid-cols-2 gap-3 sm:gap-6">
                 <div class="text-center">
-                  <div class="text-xs text-amber-800 uppercase mb-2 font-semibold">
+                  <div
+                    class="text-[10px] sm:text-xs text-amber-800 uppercase mb-1 sm:mb-2 font-semibold"
+                  >
                     {{ t.chiPricing.buy }}
                   </div>
-                  <div class="text-4xl lg:text-5xl font-black text-amber-950">
+                  <div class="text-xl sm:text-3xl lg:text-5xl font-black text-amber-950 break-all">
                     {{ formatPrice(chiJewelBuy) }}
                   </div>
                 </div>
                 <div class="text-center">
-                  <div class="text-xs text-blue-700 uppercase mb-2 font-semibold">
+                  <div
+                    class="text-[10px] sm:text-xs text-blue-700 uppercase mb-1 sm:mb-2 font-semibold"
+                  >
                     {{ t.chiPricing.sell }}
                   </div>
-                  <div class="text-4xl lg:text-5xl font-black text-blue-900">
+                  <div class="text-xl sm:text-3xl lg:text-5xl font-black text-blue-900 break-all">
                     {{ formatPrice(chiJewelSell) }}
                   </div>
                 </div>
@@ -206,35 +231,50 @@
             </div>
           </div>
 
-          <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-4 border border-slate-200 mb-8">
-            <div class="text-xs text-slate-600 font-semibold mb-3 text-center uppercase">
+          <div
+            class="bg-white/60 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-slate-200 mb-4 sm:mb-8"
+          >
+            <div
+              class="text-[10px] sm:text-xs text-slate-600 font-semibold mb-2 sm:mb-3 text-center uppercase"
+            >
               {{ t.units.referencePrices }}
             </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="text-center p-3 bg-amber-50/50 rounded-xl">
-                <div class="text-[10px] text-amber-700 mb-1">{{ t.units.troyOunce }}</div>
-                <div class="text-xl font-bold text-amber-900">
+            <div class="grid grid-cols-2 gap-2 sm:gap-4">
+              <div class="text-center p-2 sm:p-3 bg-amber-50/50 rounded-lg sm:rounded-xl">
+                <div class="text-[9px] sm:text-[10px] text-amber-700 mb-1">
+                  {{ t.units.troyOunce }}
+                </div>
+                <div class="text-sm sm:text-xl font-bold text-amber-900 break-all">
                   {{ formatPrice(displayGoldPrice) }}
                 </div>
               </div>
 
-              <div class="text-center p-3 bg-amber-50/50 rounded-xl">
-                <div class="text-[10px] text-amber-700 mb-1">{{ t.units.perGram }}</div>
-                <div class="text-xl font-bold text-amber-900">
+              <div class="text-center p-2 sm:p-3 bg-amber-50/50 rounded-lg sm:rounded-xl">
+                <div class="text-[9px] sm:text-[10px] text-amber-700 mb-1">
+                  {{ t.units.perGram }}
+                </div>
+                <div class="text-sm sm:text-xl font-bold text-amber-900 break-all">
                   {{ formatPrice(pricePerGram) }}
                 </div>
-                <div class="text-[10px] text-amber-600 mt-1">per 1.0{{ t.units.gram }}</div>
+                <div class="text-[9px] sm:text-[10px] text-amber-600 mt-1">
+                  per 1.0{{ t.units.gram }}
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-200">
-            <p class="text-xs text-amber-700 text-center" v-html="t.info.chiDescription"></p>
+          <div
+            class="mt-4 sm:mt-6 p-3 sm:p-4 bg-amber-50 rounded-lg sm:rounded-xl border border-amber-200"
+          >
+            <p
+              class="text-[10px] sm:text-xs text-amber-700 text-center"
+              v-html="t.info.chiDescription"
+            ></p>
           </div>
         </div>
       </div>
 
-      <div class="text-center text-sm text-amber-700">
+      <div class="text-center text-xs sm:text-sm text-amber-700 px-2">
         <p>{{ t.info.conversions }}</p>
       </div>
     </div>
