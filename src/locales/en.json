@@ -1,7 +1,7 @@
 {
   "app": {
     "title": "Gold Price Monitor",
-    "subtitle": "Live pricing in Gram, Ounce & Chi (ជី)",
+    "subtitle": "Real-time gold prices in Gram, Ounce & Chi (ជី) | Updated every 30 seconds",
     "liveUpdates": "Live Updates Active",
     "lastUpdated": "Last updated",
     "refresh": "Refresh",
@@ -21,8 +21,10 @@
   "chiPricing": {
     "goldBar": "Gold Bar",
     "goldJewel": "Gold Jewel",
-    "buy": "BUY",
-    "sell": "SELL"
+    "buy": "SHOP BUYS",
+    "sell": "SHOP SELLS",
+    "buyDescription": "Price shop pays",
+    "sellDescription": "Price you pay"
   },
   "stats": {
     "open": "OPEN",
@@ -41,7 +43,8 @@
   },
   "info": {
     "chiDescription": "<strong>Chi (ជី)</strong> is a traditional Cambodian unit for measuring gold. 1 Chi = 3.75 grams | Auto-updates every 30 seconds",
-    "conversions": "1 Troy Ounce = 31.1035g | 1 Chi = 3.75g | 1 Ounce ≈ 8.29 Chi"
+    "conversions": "1 Troy Ounce = 31.1035g | 1 Chi = 3.75g | 1 Ounce ≈ 8.29 Chi",
+    "disclaimer": "Disclaimer: The prices displayed are calculated estimates based on international gold prices and standard conversion rates. Actual prices may vary between different gold shops in Cambodia due to factors such as shop premiums, purity, craftsmanship, and market conditions. Always verify current prices with your local gold dealer before making any transactions."
   },
   "calculator": {
     "title": "Gold Price Calculator",
